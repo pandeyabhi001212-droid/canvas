@@ -28,5 +28,5 @@ Canvas demonstrates essential front-end development concepts, including responsi
 
 ## Purpose
 
-The goal of Lumina is to provide an elegant and interactive image gallery experience while serving as a practical example of modern front-end web development techniques.
+The goal of Canvas is to provide an elegant and interactive image gallery experience while serving as a practical example of modern front-end web development techniques.
 
