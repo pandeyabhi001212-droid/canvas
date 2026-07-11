@@ -1,9 +1,9 @@
-# Spectra Calculator
+# Canvas Calculator
 
-A modern, responsive, and feature-rich calculator web application built using HTML5, CSS3, and Vanilla JavaScript. Spectra provides a smooth calculation experience with an elegant user interface, advanced functionality, and responsive design.
+A modern, responsive, and feature-rich calculator web application built using HTML5, CSS3, and Vanilla JavaScript. Canvas provides a smooth calculation experience with an elegant user interface, advanced functionality, and responsive design.
 
 ## Live Demo
-https://spectra-two-sooty.vercel.app/
+
 
 ## Features
 
