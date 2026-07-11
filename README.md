@@ -1,13 +1,13 @@
-# Lumina
+# Canvas
 
-Lumina is a modern and responsive image gallery application built using HTML, CSS, and JavaScript. Designed with a clean user interface and smooth user experience in mind, Lumina allows users to browse and view images seamlessly across desktop, tablet, and mobile devices.
+Canvas is a modern and responsive image gallery application built using HTML, CSS, and JavaScript. Designed with a clean user interface and smooth user experience in mind, Canvas allows users to browse and view images seamlessly across desktop, tablet, and mobile devices.
 
 The project includes an interactive lightbox for viewing images in full size, next and previous navigation controls for easy browsing, smooth hover effects, and animated transitions that enhance visual appeal. Category-based filtering enables users to quickly find images of interest, making the gallery both functional and user-friendly.
 
-Lumina demonstrates essential front-end development concepts, including responsive web design, DOM manipulation, event handling, CSS animations, and dynamic content filtering. Its lightweight structure and intuitive design make it suitable for learning, portfolio projects, and showcasing collections of images.
+Canvas demonstrates essential front-end development concepts, including responsive web design, DOM manipulation, event handling, CSS animations, and dynamic content filtering. Its lightweight structure and intuitive design make it suitable for learning, portfolio projects, and showcasing collections of images.
 
 ## Live Demo
-https://lumina-gallery-pro.vercel.app/
+
 
 ## Features
 
