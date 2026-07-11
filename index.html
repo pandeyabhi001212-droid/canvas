@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <meta name="description" content="🇩‌🇮‌🇸‌🇨‌🇴‌🇻‌🇪‌🇷‌ 🇸‌🇹‌🇺‌🇳‌🇳‌🇮‌🇳‌🇬‌ 🇮‌🇲‌🇦‌🇬‌🇪‌🇷‌🇾‌ high-quality photos for free. Browse, search, and upload images to your personal gallery with Lumina.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <header class="header">
+        <div class="container header-content">
+            <h1 class="logo">Canvas</h1>
+            <div class="controls">
+                <button id="addPhotoBtn" class="add-photo-btn" aria-label="Add Photo" title="Add Photo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>Add Photo</span>
+                </button>
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <h2 class="hero-title">Discover stunning imagery</h2>
+            <p class="hero-subtitle">High-quality photos for your next project, completely free.</p>
+            <div class="search-box hero-search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search for anything..." aria-label="Search images"
+                    autofocus autocomplete="off">
+            </div>
+        </section>
+        <section class="gallery-grid" id="galleryGrid">
+            <figure class="gallery-item" data-category="nature" data-title="Misty Forest">
+                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80"
+                    alt="Misty Forest" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Misty Forest</h3>
+                    <span class="item-category">Nature</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="nature" data-title="Majestic Mountains">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80"
+                    alt="Majestic Mountains" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Majestic Mountains</h3>
+                    <span class="item-category">Nature</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="nature" data-title="Crystal Lake">
+                <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&q=80"
+                    alt="Crystal Lake" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Crystal Lake</h3>
+                    <span class="item-category">Nature</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="nature" data-title="Deep Woods">
+                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80"
+                    alt="Deep Woods" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Deep Woods</h3>
+                    <span class="item-category">Nature</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="animals" data-title="Red Fox">
+                <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=800&q=80"
+                    alt="Red Fox" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Red Fox</h3>
+                    <span class="item-category">Animals</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="animals" data-title="Golden Retriever">
+                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80"
+                    alt="Golden Retriever" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Golden Retriever</h3>
+                    <span class="item-category">Animals</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="animals" data-title="Cute Cat">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80"
+                    alt="Cute Cat" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Cute Cat</h3>
+                    <span class="item-category">Animals</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="cities" data-title="City Skyline">
+                <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=800&q=80"
+                    alt="City Skyline" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">City Skyline</h3>
+                    <span class="item-category">Cities</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="cities" data-title="New York Streets">
+                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=800&q=80"
+                    alt="New York Streets" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">New York Streets</h3>
+                    <span class="item-category">Cities</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="cities" data-title="Chicago Architecture">
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80"
+                    alt="Chicago Architecture" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Chicago Architecture</h3>
+                    <span class="item-category">Cities</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="cities" data-title="Urban Nights">
+                <img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&w=800&q=80"
+                    alt="Urban Nights" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Urban Nights</h3>
+                    <span class="item-category">Cities</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="technology" data-title="Circuit Board">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                    alt="Circuit Board" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Circuit Board</h3>
+                    <span class="item-category">Technology</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="technology" data-title="Modern Workspace">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                    alt="Modern Workspace" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Modern Workspace</h3>
+                    <span class="item-category">Technology</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="technology" data-title="Tech Setup">
+                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=800&q=80"
+                    alt="Tech Setup" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Tech Setup</h3>
+                    <span class="item-category">Technology</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="travel" data-title="Airplane Window">
+                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=800&q=80"
+                    alt="Airplane Window" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Airplane Window</h3>
+                    <span class="item-category">Travel</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="travel" data-title="Mountain Explorer">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=800&q=80"
+                    alt="Mountain Explorer" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Mountain Explorer</h3>
+                    <span class="item-category">Travel</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="travel" data-title="Van Life Journey">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80"
+                    alt="Van Life Journey" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Van Life Journey</h3>
+                    <span class="item-category">Travel</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="food" data-title="Fine Dining">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
+                    alt="Fine Dining" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Fine Dining</h3>
+                    <span class="item-category">Food</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="food" data-title="Classic Burger">
+                <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic Burger" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Classic Burger</h3>
+                    <span class="item-category">Food</span>
+                </figcaption>
+            </figure>
+            <figure class="gallery-item" data-category="food" data-title="Gourmet Pizza">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+                    alt="Gourmet Pizza" loading="lazy">
+                <figcaption class="item-info">
+                    <h3 class="item-title">Gourmet Pizza</h3>
+                    <span class="item-category">Food</span>
+                </figcaption>
+            </figure>
+        </section>
+        <div id="no-results" class="no-results hidden">
+            <h2>No images found</h2>
+            <p>Try adjusting your search or category filter.</p>
+        </div>
+        <div id="online-loader" class="no-results hidden">
+            <h2>Fetching from the web...</h2>
+            <div class="spinner-container">
+                <div class="spinner-glow"></div>
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <!-- Infinite Scroll Sentinel & Pagination Loader -->
+        <div id="infinite-scroll-sentinel" class="infinite-scroll-sentinel hidden">
+            <div class="spinner-container">
+                <div class="spinner"></div>
+            </div>
+            <p class="infinite-scroll-label">Loading more photos...</p>
+        </div>
+
+        <!-- Upload Modal -->
+        <div id="uploadModal" class="upload-modal" aria-hidden="true" role="dialog" aria-label="Add Photo">
+            <div class="upload-modal-backdrop" id="uploadModalBackdrop"></div>
+            <div class="upload-modal-content">
+                <div class="upload-modal-header">
+                    <h2 class="upload-modal-title">Add Photo</h2>
+                    <button id="uploadModalClose" class="upload-modal-close" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Source Tab Toggle -->
+                <div class="upload-source-tabs" role="tablist">
+                    <button id="tabFile" class="upload-tab active" role="tab" aria-selected="true">Upload File</button>
+                    <button id="tabUrl" class="upload-tab" role="tab" aria-selected="false">Image URL</button>
+                </div>
+
+                <!-- File Upload Panel -->
+                <div id="panelFile" class="upload-panel">
+                    <div id="dropZone" class="drop-zone">
+                        <input type="file" id="fileInput" accept="image/*" class="file-input-hidden" aria-label="Choose image file">
+                        <div class="drop-zone-content">
+                            <div class="drop-zone-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                            </div>
+                            <p class="drop-zone-text">Drag & drop an image here</p>
+                            <p class="drop-zone-subtext">or</p>
+                            <button type="button" id="browseBtn" class="browse-btn">Browse Files</button>
+                        </div>
+                        <div id="previewContainer" class="preview-container hidden">
+                            <img id="filePreview" class="file-preview" src="" alt="Preview">
+                            <button type="button" id="clearPreviewBtn" class="clear-preview-btn" aria-label="Remove image">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- URL Panel -->
+                <div id="panelUrl" class="upload-panel hidden">
+                    <div class="url-input-wrapper">
+                        <label class="upload-label" for="urlInput">Image URL</label>
+                        <input type="url" id="urlInput" class="upload-input" placeholder="https://example.com/photo.jpg" autocomplete="off">
+                        <div id="urlPreviewContainer" class="preview-container hidden" style="margin-top: 1rem;">
+                            <img id="urlPreview" class="file-preview" src="" alt="URL Preview">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shared Metadata Fields -->
+                <div class="upload-fields">
+                    <div class="upload-field-group">
+                        <label class="upload-label" for="photoTitle">Title</label>
+                        <input type="text" id="photoTitle" class="upload-input" placeholder="Enter a title..." maxlength="80" autocomplete="off">
+                    </div>
+                    <div class="upload-field-group">
+                        <label class="upload-label" for="photoCategory">Category</label>
+                        <select id="photoCategory" class="upload-input upload-select">
+                            <option value="my uploads">My Uploads</option>
+                            <option value="nature">Nature</option>
+                            <option value="animals">Animals</option>
+                            <option value="cities">Cities</option>
+                            <option value="technology">Technology</option>
+                            <option value="travel">Travel</option>
+                            <option value="food">Food</option>
+                            <option value="art">Art</option>
+                            <option value="architecture">Architecture</option>
+                            <option value="portrait">Portrait</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="uploadError" class="upload-error hidden"></div>
+
+                <div class="upload-modal-footer">
+                    <button id="cancelUploadBtn" class="upload-btn-cancel">Cancel</button>
+                    <button id="submitUploadBtn" class="upload-btn-submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Image
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image Lightbox">
+            <div class="lightbox-backdrop"></div>
+            <div class="lightbox-header">
+                <div class="lightbox-counter-wrapper">
+                    <span id="lightbox-counter" class="lightbox-counter"></span>
+                </div>
+                <div class="lightbox-header-actions" style="display: flex; gap: 1rem;">
+                    <button id="lightbox-download" class="lightbox-btn" aria-label="Download Image"
+                        title="Download Image"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg></button>
+                    <button id="lightbox-delete" class="lightbox-btn lightbox-delete-btn hidden" aria-label="Delete Image" title="Delete Image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+                            <path d="M10 11v6"></path>
+                            <path d="M14 11v6"></path>
+                            <path d="M9 6V4h6v2"></path>
+                        </svg>
+                    </button>
+                    <button id="lightbox-close" class="lightbox-btn" aria-label="Close Lightbox" title="Close"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg></button>
+                </div>
+            </div>
+            <button id="lightbox-prev" class="lightbox-btn nav-btn nav-prev" aria-label="Previous Image"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg></button>
+            <div class="lightbox-img-wrapper">
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Lightbox Image">
+            </div>
+            <button id="lightbox-next" class="lightbox-btn nav-btn nav-next" aria-label="Next Image"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg></button>
+            <div class="lightbox-footer">
+                <h3 id="lightbox-title" class="lightbox-title"></h3>
+                <span id="lightbox-category" class="lightbox-category"></span>
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>
